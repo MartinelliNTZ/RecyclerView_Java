@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
+
+
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this,
                 LinearLayoutManager.VERTICAL, false);
         recycler.setLayoutManager(layoutManager);
