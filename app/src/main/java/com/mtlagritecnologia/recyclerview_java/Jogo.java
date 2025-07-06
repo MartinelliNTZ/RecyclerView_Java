@@ -8,6 +8,21 @@ package com.mtlagritecnologia.recyclerview_java;
 public class Jogo {
     private String nome;
     private String plataform;
+    private double price;
+
+    public Jogo(String nome, String plataform, double price) {
+        this.nome = nome;
+        this.plataform = plataform;
+        this.price = price;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
     public Jogo(String nome, String plataform) {
         this.nome = nome;

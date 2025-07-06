@@ -32,31 +32,31 @@ public class MainActivity extends AppCompatActivity {
         itens = new ArrayList<Jogo>();
 
         // Adiciona vários jogos à lista
-        itens.add(new Jogo("God of War", "PlayStation"));
-        itens.add(new Jogo("Halo Infinite", "Xbox"));
-        itens.add(new Jogo("The Legend of Zelda: Breath of the Wild", "Nintendo Switch"));
-        itens.add(new Jogo("Counter-Strike: Global Offensive", "PC"));
-        itens.add(new Jogo("Minecraft", "Multiplataforma"));
-        itens.add(new Jogo("Red Dead Redemption 2", "PlayStation"));
-        itens.add(new Jogo("Forza Horizon 5", "Xbox"));
-        itens.add(new Jogo("Super Mario Odyssey", "Nintendo Switch"));
-        itens.add(new Jogo("The Witcher 3: Wild Hunt", "PC"));
-        itens.add(new Jogo("Elden Ring", "PlayStation"));
-        itens.add(new Jogo("Gears 5", "Xbox"));
-        itens.add(new Jogo("Animal Crossing: New Horizons", "Nintendo Switch"));
-        itens.add(new Jogo("Valorant", "PC"));
-        itens.add(new Jogo("Final Fantasy VII Remake", "PlayStation"));
-        itens.add(new Jogo("Sea of Thieves", "Xbox"));
-        itens.add(new Jogo("Splatoon 3", "Nintendo Switch"));
-        itens.add(new Jogo("League of Legends", "PC"));
-        itens.add(new Jogo("Horizon Forbidden West", "PlayStation"));
-        itens.add(new Jogo("Microsoft Flight Simulator", "Xbox"));
-        itens.add(new Jogo("Metroid Dread", "Nintendo Switch"));
-        itens.add(new Jogo("Fortnite", "Multiplataforma"));
-        itens.add(new Jogo("Call of Duty: Warzone", "Multiplataforma"));
-        itens.add(new Jogo("Resident Evil Village", "PlayStation"));
-        itens.add(new Jogo("FIFA 23", "Multiplataforma"));
-        itens.add(new Jogo("Cyberpunk 2077", "PC"));
+        itens.add(new Jogo("God of War", "PlayStation", 199.90));
+        itens.add(new Jogo("Halo Infinite", "Xbox", 179.99));
+        itens.add(new Jogo("The Legend of Zelda: Breath of the Wild", "Nintendo Switch", 299.90));
+        itens.add(new Jogo("Counter-Strike: Global Offensive", "PC", 0.00));
+        itens.add(new Jogo("Minecraft", "Multiplataforma", 129.90));
+        itens.add(new Jogo("Red Dead Redemption 2", "PlayStation", 249.90));
+        itens.add(new Jogo("Forza Horizon 5", "Xbox", 229.99));
+        itens.add(new Jogo("Super Mario Odyssey", "Nintendo Switch", 289.90));
+        itens.add(new Jogo("The Witcher 3: Wild Hunt", "PC", 89.90));
+        itens.add(new Jogo("Elden Ring", "PlayStation", 279.90));
+        itens.add(new Jogo("Gears 5", "Xbox", 159.99));
+        itens.add(new Jogo("Animal Crossing: New Horizons", "Nintendo Switch", 279.90));
+        itens.add(new Jogo("Valorant", "PC", 3000.00));
+        itens.add(new Jogo("Final Fantasy VII Remake", "PlayStation", 229.90));
+        itens.add(new Jogo("Sea of Thieves", "Xbox", 149.99));
+        itens.add(new Jogo("Splatoon 3", "Nintendo Switch", 299.90));
+        itens.add(new Jogo("League of Legends", "PC", 0.00));
+        itens.add(new Jogo("Horizon Forbidden West", "PlayStation", 279.90));
+        itens.add(new Jogo("Microsoft Flight Simulator", "Xbox", 249.99));
+        itens.add(new Jogo("Metroid Dread", "Nintendo Switch", 299.90));
+        itens.add(new Jogo("Fortnite", "Multiplataforma", 0.00));
+        itens.add(new Jogo("Call of Duty: Warzone", "Multiplataforma", 0.00));
+        itens.add(new Jogo("Resident Evil Village", "PlayStation", 199.90));
+        itens.add(new Jogo("FIFA 23", "Multiplataforma", 249.90));
+        itens.add(new Jogo("Cyberpunk 2077", "PC", 149.90));
 
         // Você pode adicionar mais conforme desejar!
     }
