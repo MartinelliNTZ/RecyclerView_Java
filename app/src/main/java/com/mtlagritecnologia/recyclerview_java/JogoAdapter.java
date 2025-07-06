@@ -20,10 +20,12 @@ import java.util.Locale;
 public class JogoAdapter extends RecyclerView.Adapter<JogoViewHolder> {
     private Context context;
     private ArrayList<Jogo> itens;
+    private OnJogoClickListener listener;
 
-    public JogoAdapter(Context context, ArrayList<Jogo> itens) {
+    public JogoAdapter(Context context, ArrayList<Jogo> itens, OnJogoClickListener listener) {
         this.context = context;
         this.itens = itens;
+        this.listener = listener;
     }
 
     @NonNull
@@ -44,9 +46,6 @@ public class JogoAdapter extends RecyclerView.Adapter<JogoViewHolder> {
         NumberFormat formatador = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
         String t = formatador.format(jogo.getPrice());
         jogoViewHolder.txtPrice.setText(t);
-        jogoViewHolder.txtNome.setOnClickListener(v ->{
-            Toast.makeText(context, "Clicou em "+"jogo.getNome()", Toast.LENGTH_SHORT).show();
-        });
 
         switch (jogo.getPlataform().toLowerCase()) {
             case "xbox":
@@ -66,6 +65,10 @@ public class JogoAdapter extends RecyclerView.Adapter<JogoViewHolder> {
                 jogoViewHolder.imgLogo.setImageResource(R.drawable.ic_default); // opcional
                 break;
         }
+        jogoViewHolder.itemView.setOnClickListener(v -> {
+            listener.onJogoClick(itens.get(position));
+        });
+
 
     }
 

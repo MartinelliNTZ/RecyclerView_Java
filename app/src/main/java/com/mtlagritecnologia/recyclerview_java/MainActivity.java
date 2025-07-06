@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,7 +21,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         recycler = findViewById(R.id.recycler);
         criarLista();
-        adapter = new JogoAdapter(MainActivity.this,itens);
+        adapter = new JogoAdapter(MainActivity.this, itens, new OnJogoClickListener() {
+            @Override
+            public void onJogoClick(Jogo jogo) {
+                Toast.makeText(getApplicationContext(),
+                        "Clicou em: " + jogo.getNome(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this,
                 LinearLayoutManager.VERTICAL, false);
         recycler.setLayoutManager(layoutManager);

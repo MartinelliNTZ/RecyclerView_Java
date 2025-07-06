@@ -24,5 +24,6 @@ public class JogoViewHolder extends RecyclerView.ViewHolder {
         imgLogo = itemView.findViewById(R.id.imgCard);
 
 
+
     }
 }
