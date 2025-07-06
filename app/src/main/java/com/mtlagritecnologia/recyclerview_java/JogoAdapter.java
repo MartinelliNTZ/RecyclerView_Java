@@ -1,5 +1,6 @@
 package com.mtlagritecnologia.recyclerview_java;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -69,6 +70,24 @@ public class JogoAdapter extends RecyclerView.Adapter<JogoViewHolder> {
             listener.onJogoClick(itens.get(position));
         });
 
+        // Clique longo com alerta de compra
+        jogoViewHolder.itemView.setOnLongClickListener(v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(jogoViewHolder.itemView.getContext());
+            builder.setTitle("Comprar jogo");
+            builder.setMessage("Deseja comprar \"" + jogo.getNome() + "\" por " +
+                    formatador.format(jogo.getPrice()) + "?");
+
+            builder.setPositiveButton("Comprar", (dialog, which) -> {
+                Toast.makeText(jogoViewHolder.itemView.getContext(),
+                        "Compra realizada com sucesso!",
+                        Toast.LENGTH_SHORT).show();
+            });
+
+            builder.setNegativeButton("Cancelar", null);
+            builder.show();
+
+            return true; // Indica que o clique longo foi tratado
+        });
 
     }
 
