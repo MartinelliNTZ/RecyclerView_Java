@@ -19,35 +19,52 @@ import java.util.Locale;
  * martinelli.matheus2@gmail.com
  */
 public class JogoAdapter extends RecyclerView.Adapter<JogoViewHolder> {
-    private Context context;
-    private ArrayList<Jogo> itens;
-    private OnJogoClickListener listener;
 
+    private Context context;               // Contexto da aplicação (geralmente vem da Activity)
+    private ArrayList<Jogo> itens;         // Lista de jogos que serão exibidos no RecyclerView
+    private OnJogoClickListener listener;  // Interface para capturar clique simples
+
+    /**
+     * Construtor do adapter.
+     * Recebe o contexto, a lista de jogos e o listener de clique simples.
+     */
     public JogoAdapter(Context context, ArrayList<Jogo> itens, OnJogoClickListener listener) {
         this.context = context;
         this.itens = itens;
         this.listener = listener;
     }
 
+    /**
+     * Chamado automaticamente quando o RecyclerView precisa "inflar" um novo item visual (layout).
+     * Aqui ele cria o layout baseado no XML 'jogo_linha.xml' e retorna o ViewHolder.
+     */
     @NonNull
     @Override
     public JogoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int typeView) {
         View view = LayoutInflater.from(context)
-                .inflate(R.layout.jogo_linha, parent, false);
-        JogoViewHolder jogoViewHolder = new JogoViewHolder(view);
+                .inflate(R.layout.jogo_linha, parent, false); // Converte o XML em um objeto View
+        JogoViewHolder jogoViewHolder = new JogoViewHolder(view); // Cria o ViewHolder com essa View
         return jogoViewHolder;
     }
 
+    /**
+     * Esse método é chamado sempre que um item precisa ser exibido ou atualizado na tela.
+     * Aqui você define o que vai aparecer em cada campo (nome, plataforma, preço, imagem).
+     */
     @Override
     public void onBindViewHolder(@NonNull JogoViewHolder jogoViewHolder, int position) {
-        Jogo jogo = itens.get(position);
+        Jogo jogo = itens.get(position); // Recupera o objeto Jogo da posição atual da lista
+
+        // Define os textos das TextViews com os dados do jogo
         jogoViewHolder.txtNome.setText(jogo.getNome());
         jogoViewHolder.txtPlataform.setText(jogo.getPlataform());
 
+        // Formata o preço com vírgula decimal e ponto para milhar (ex: R$ 1.299,90)
         NumberFormat formatador = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
         String t = formatador.format(jogo.getPrice());
         jogoViewHolder.txtPrice.setText(t);
 
+        // Escolhe a imagem de acordo com a plataforma
         switch (jogo.getPlataform().toLowerCase()) {
             case "xbox":
                 jogoViewHolder.imgLogo.setImageResource(R.drawable.xbox);
@@ -63,14 +80,16 @@ public class JogoAdapter extends RecyclerView.Adapter<JogoViewHolder> {
                 jogoViewHolder.imgLogo.setImageResource(R.drawable.playstation);
                 break;
             default:
-                jogoViewHolder.imgLogo.setImageResource(R.drawable.ic_default); // opcional
+                jogoViewHolder.imgLogo.setImageResource(R.drawable.ic_default); // Imagem padrão caso não reconheça
                 break;
         }
+
+        // Clique simples: dispara o listener enviado pela Activity
         jogoViewHolder.itemView.setOnClickListener(v -> {
             listener.onJogoClick(itens.get(position));
         });
 
-        // Clique longo com alerta de compra
+        // Clique longo: exibe um alerta para simular a compra do jogo
         jogoViewHolder.itemView.setOnLongClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(jogoViewHolder.itemView.getContext());
             builder.setTitle("Comprar jogo");
@@ -88,11 +107,13 @@ public class JogoAdapter extends RecyclerView.Adapter<JogoViewHolder> {
 
             return true; // Indica que o clique longo foi tratado
         });
-
     }
 
+    /**
+     * Retorna a quantidade total de itens que o RecyclerView deve exibir.
+     */
     @Override
     public int getItemCount() {
-        return itens.size();
+        return itens.size(); // Tamanho da lista de jogos
     }
 }

@@ -10,17 +10,37 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
+
+    // RecyclerView que vai exibir a lista de jogos
     private RecyclerView recycler;
+
+    // Adapter responsável por ligar a lista ao RecyclerView
     private JogoAdapter adapter;
+
+    // Lista com os objetos do tipo Jogo (os dados)
     private ArrayList<Jogo> itens;
 
-
+    /**
+     * Método chamado automaticamente quando a Activity é criada.
+     * Aqui configuramos o layout da tela, criamos a lista e ativamos o RecyclerView.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Define qual layout XML será usado (activity_main.xml)
         setContentView(R.layout.activity_main);
+
+        // Conecta o RecyclerView com o ID definido no layout
         recycler = findViewById(R.id.recycler);
+
+        // Cria a lista de jogos (com nome, plataforma e preço)
         criarLista();
+
+        // Cria o Adapter, passando:
+        // - contexto da tela
+        // - lista de jogos
+        // - o que fazer quando o item for clicado (exibe um Toast)
         adapter = new JogoAdapter(MainActivity.this, itens, new OnJogoClickListener() {
             @Override
             public void onJogoClick(Jogo jogo) {
@@ -30,18 +50,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Define o layout vertical para a lista (um item por linha, de cima para baixo)
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(
+                MainActivity.this, LinearLayoutManager.VERTICAL, false
+        );
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this,
-                LinearLayoutManager.VERTICAL, false);
+        // Aplica o layout e o adapter ao RecyclerView
         recycler.setLayoutManager(layoutManager);
         recycler.setAdapter(adapter);
     }
 
+    /**
+     * Método que cria e preenche a lista de jogos.
+     * Aqui é onde você define os dados que serão exibidos.
+     */
     public void criarLista() {
         // Inicializa a lista
-        itens = new ArrayList<Jogo>();
+        itens = new ArrayList<>();
 
-        // Adiciona vários jogos à lista
+        // Adiciona objetos do tipo Jogo à lista (nome, plataforma, preço)
         itens.add(new Jogo("God of War", "PlayStation", 199.90));
         itens.add(new Jogo("Halo Infinite", "Xbox", 179.99));
         itens.add(new Jogo("The Legend of Zelda: Breath of the Wild", "Nintendo Switch", 299.90));
@@ -68,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
         itens.add(new Jogo("FIFA 23", "Multiplataforma", 249.90));
         itens.add(new Jogo("Cyberpunk 2077", "PC", 149.90));
 
-        // Você pode adicionar mais conforme desejar!
+        // ✨ Você pode adicionar mais jogos aqui no futuro!
     }
-
 }

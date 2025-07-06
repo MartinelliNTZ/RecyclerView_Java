@@ -12,18 +12,27 @@ import android.widget.TextView;
  * martinelli.matheus2@gmail.com
  */
 public class JogoViewHolder extends RecyclerView.ViewHolder {
-    TextView txtNome, txtPlataform, txtPrice;
-    ImageView imgLogo;
 
+    // Referências para os elementos visuais (TextViews e ImageView) do item da lista
+    TextView txtNome;        // Mostra o nome do jogo
+    TextView txtPlataform;   // Mostra a plataforma (PC, Xbox, etc.)
+    TextView txtPrice;       // Mostra o preço formatado (ex: R$ 129,90)
+    ImageView imgLogo;       // Exibe a imagem da plataforma (ícone)
 
+    /**
+     * Este construtor é chamado automaticamente pelo RecyclerView
+     * quando ele precisa criar um novo item visual (ViewHolder).
+     *
+     * Aqui são feitas as ligações entre os elementos do XML (jogo_linha.xml)
+     * e os objetos do ViewHolder, usando findViewById.
+     */
     public JogoViewHolder(@NonNull View itemView) {
         super(itemView);
+
+        // Liga cada variável ao componente visual correspondente do layout
         txtNome = itemView.findViewById(R.id.txtCardNome);
         txtPlataform = itemView.findViewById(R.id.txtCardPlataform);
         txtPrice = itemView.findViewById(R.id.txtPrice);
         imgLogo = itemView.findViewById(R.id.imgCard);
-
-
-
     }
 }
