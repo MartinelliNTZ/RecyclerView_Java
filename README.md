@@ -48,60 +48,63 @@ Além disso, o app trata eventos de interação do usuário como:
 1. Clone o repositório:
    ```bash
    git clone https://github.com/seuusuario/seuprojeto.git
-Abra o projeto no Android Studio.
+2.Abra o projeto no Android Studio.
 
-Conecte um dispositivo Android ou configure um emulador.
+3.Conecte um dispositivo Android ou configure um emulador.
 
-Compile e execute o app.
+4.Compile e execute o app.
 
-💡 Como usar
-A lista de jogos já vem populada com títulos famosos.
+## 💡 Como usar
 
-Toque em qualquer jogo para ver um toast com o nome.
+- A lista de jogos já vem populada com títulos famosos.
+- Toque em qualquer jogo para ver um toast com o nome.
+- Segure o dedo sobre um jogo para abrir o diálogo de compra.
+- Confirme para ver a mensagem de compra realizada.
 
-Segure o dedo sobre um jogo para abrir o diálogo de compra.
+---
 
-Confirme para ver a mensagem de compra realizada.
+## 🛠️ Tecnologias usadas
 
-🛠️ Tecnologias usadas
-Java 8
+- Java 8
+- Android SDK (API mínima recomendada: 21+)
+- RecyclerView (AndroidX)
+- AlertDialog para interações
+- NumberFormat para formatação monetária (Locale pt-BR)
 
-Android SDK (API mínima recomendada: 21+)
+---
 
-RecyclerView (AndroidX)
+## 📖 Aprendizados e conceitos chave
 
-AlertDialog para interações
+- Criação e uso de modelos de dados (POJOs) em Java.
+- Implementação de RecyclerView com Adapter e ViewHolder.
+- Uso de interfaces para separar eventos de clique.
+- Formatação de números e moedas localizados.
+- Gerenciamento de eventos de clique simples e longo.
+- Criação e exibição de AlertDialog.
+- Boa prática de código modular e legível.
 
-NumberFormat para formatação monetária (Locale pt-BR)
+---
 
-📖 Aprendizados e conceitos chave
-Criação e uso de modelos de dados (POJOs) em Java.
+## 🤝 Contribuições
 
-Implementação de RecyclerView com Adapter e ViewHolder.
-
-Uso de interfaces para separar eventos de clique.
-
-Formatação de números e moedas localizados.
-
-Gerenciamento de eventos de clique simples e longo.
-
-Criação e exibição de AlertDialog.
-
-Boa prática de código modular e legível.
-
-🤝 Contribuições
-Contribuições são bem-vindas!
+Contribuições são bem-vindas!  
 Sinta-se à vontade para abrir issues ou pull requests.
 
-📫 Contato
-Matheus Martinelli
+---
+
+## 📫 Contato
+
+Matheus Martinelli  
 ✉️ martinelli.matheus2@gmail.com
 
-📜 Licença
-Este projeto está sob a licença MIT - veja o arquivo LICENSE para detalhes.
 
-🧡 Agradecimentos
-Obrigado por visitar o projeto!
-Espero que ele ajude você a dominar RecyclerView no Android.
+
+---
+
+## 🧡 Agradecimentos
+
+Obrigado por visitar o projeto!  
+Espero que ele ajude você a dominar RecyclerView no Android.  
+
 
 Feito com ❤️ por Matheus Martinelli
